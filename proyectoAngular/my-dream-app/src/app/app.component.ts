@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HelloWorldComponent } from './hello-world/hello-world.component';
 import { UserComponent } from './user/user.component' 
@@ -12,6 +12,8 @@ import { UserComponent } from './user/user.component'
 })
 
 export class AppComponent {
+  @ViewChild('newUser') newUserInput!: ElementRef;
+
   users = ['ryan', 'joe', 'cameron', 'john', 'jhonatan', 'rodolfo'];
   activated = false;
   title = 'my-dream-app';
@@ -40,11 +42,11 @@ export class AppComponent {
   sayHello() {
 		alert("Hola desde app.component");
 	}
-  addUser(newUser:any){
+  addUser(newUser: any){
 		this.users.push(newUser.value);
-		newUser = '';
-		newUser.focus();
-		return false;
+    newUser.value = '';
+    this.newUserInput.nativeElement.focus();
+    return false;
 	}
   deleteUser(user:any) {
 		for(let i = 0; i < this.users.length; i++){
