@@ -24,10 +24,14 @@ import { FormsModule } from '@angular/forms';
 export class AppComponent {
   name : string = "Jhonatan B. Mamani Céspedes";
   age : number = 18;
+  title : string = "my-dream-app";
+
+  posts: any[] = [];
 
   constructor(private dataService: DataService) {
     this.dataService.getData().subscribe(data => {
-      console.log(data);
+      //console.log(data);
+      this.posts = data;
     });
   }
 }

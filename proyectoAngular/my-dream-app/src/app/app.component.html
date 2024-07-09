@@ -1,5 +1,5 @@
 <div class="black">
-	<h1>ACTIVIDADES DE ANGULAR 2</h1>
+	<h1>{{ title }}</h1>
 </div>
 <div class="ash">
 	<form>
@@ -10,5 +10,9 @@
 	<h2>Age: {{ age }}</h2>
 </div>
 <div class = "black">
-	<h1>ACTIVIDADES DE ANGULAR 2</h1>
+	<h1>Data de los JSON</h1>
+</div>
+<div class="ash" *ngFor="let post of posts">
+	<h2>{{ post.title }}</h2>
+	<h2>{{ post.body }}</h2>
 </div>
