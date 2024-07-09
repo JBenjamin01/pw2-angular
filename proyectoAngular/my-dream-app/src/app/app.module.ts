@@ -1,22 +1,26 @@
-import { HttpClientModule } from '@angular/common/http';
-import { DataService } from './data.service';
-
-import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { RouterModule, Route } from '@angular/router';
+
+import { AppComponent } from './app.component';
+import { HelloWorldComponent } from './hello-world/hello-world.component';
+import { AboutComponent } from './about/about.component';
+
+const routes: Route[] =[
+    { path: '', component: AppComponent },
+    { path: 'hello', component: HelloWorldComponent },
+    { path: 'about', component: AboutComponent }
+];
 
 @NgModule({
-    declarations: [],
     imports: [
         BrowserModule,
-        AppRoutingModule,
         FormsModule,
-        HttpClientModule
+        RouterModule.forRoot(routes),
     ],
-    providers: [DataService],
-    bootstrap: []
+
+    bootstrap: [],
 })
 
 export class AppModule { }

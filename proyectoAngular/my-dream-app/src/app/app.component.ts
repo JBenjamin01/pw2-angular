@@ -1,37 +1,24 @@
-import { HttpClientModule } from '@angular/common/http';
-import { DataService } from './data.service';
-
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HelloWorldComponent } from './hello-world/hello-world.component';
-import { UserComponent } from './user/user.component' 
-import { FormsModule } from '@angular/forms';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule,
-            HelloWorldComponent,
-            UserComponent,
-            FormsModule,
-            HttpClientModule
-          ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  providers: [DataService]
+  imports: [CommonModule, RouterOutlet]
 })
 
 export class AppComponent {
   name : string = "Jhonatan B. Mamani Céspedes";
   age : number = 18;
+  email: string = "jmamanices@unsa.edu.pe";
   title : string = "my-dream-app";
+  hobbies = ["Futbol","Programacion","Leer","Editar y modelar (3D)"];
+  showHobbies = false;
 
-  posts: any[] = [];
-
-  constructor(private dataService: DataService) {
-    this.dataService.getData().subscribe(data => {
-      //console.log(data);
-      this.posts = data;
-    });
-  }
+  toggleHobbies() {
+		this.showHobbies = !this.showHobbies;
+	}
 }
