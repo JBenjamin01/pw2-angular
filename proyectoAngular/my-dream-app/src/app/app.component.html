@@ -17,11 +17,9 @@
 	</form>
 	<app-hello-world>Aqui</app-hello-world>
 	<ul>
-		<li *ngFor="let user of users">
-			<app-user [nameUser]="user"></app-user>
-		</li>
+		<app-user *ngFor="let user of users" [nameUser]="user"></app-user>
 	</ul>
 </div>
 <div class = "black">
-	<h1> {{title}} </h1>
+	<h1> {{ title }} </h1>
 </div>
