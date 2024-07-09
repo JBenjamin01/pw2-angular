@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
+  imports: [CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -12,6 +14,7 @@ export class AppComponent {
 	email;
 	webpage : string;
 	hobbies : string[];
+  showHobbies : boolean;
 
   constructor() {
     console.log("Constructor working...");
@@ -19,5 +22,9 @@ export class AppComponent {
     this.email = "jmamanices@unsa.edu.pe";
     this.webpage = "http://www.unsa.edu.pe";
     this.hobbies = ["Futbol","Programacion","Leer","Editar y modelar (3D)"];
+    this.showHobbies = false;
   }
+  toggleHobbies() {
+		this.showHobbies = !this.showHobbies;
+	}
 }
